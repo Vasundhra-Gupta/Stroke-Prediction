@@ -19,7 +19,7 @@ def get_human_readable_chances(probability: float) -> str:
           return "Slight Risk"
       case prob if prob >= 0.15:
           return "Low Risk"
-      case prob if prob < 0.15 & prob>0:
+      case prob if prob < 0.15 and prob>0:
           return "Very Low Risk"
       case prob if prob==0:
           return "No Stroke"
@@ -58,7 +58,6 @@ def load_model_scaler():
         if not model_path.exists():
             raise FileNotFoundError(f"Model file not found at: {model_path}")
         
-        # Load files
         scaler = load(scaler_path)
         model = load(model_path)
         

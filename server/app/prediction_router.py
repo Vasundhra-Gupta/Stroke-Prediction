@@ -6,6 +6,7 @@ predictionRouter = APIRouter()
 
 @predictionRouter.post("/make-prediction")
 def predict(input: Data):
+    print(input)
     print("Entered✅")
     try:
         scaler, model = load_model_scaler()
@@ -14,6 +15,5 @@ def predict(input: Data):
         return FileNotFoundError("Missing files")
     prob = make_prediction(model, input, scaler)
     print("Got Probabiltity ✅")
-    result = f"{prob*100:.2f}%"
     risk_level =  get_human_readable_chances(prob)
-    return {"probability": result, "risk_level": risk_level}
+    return {"probability": prob, "risk_level": risk_level}
