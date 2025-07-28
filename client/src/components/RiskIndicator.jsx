@@ -17,11 +17,12 @@ const RiskIndicator = ({ probability, risklevel }) => {
       <div className="w-full bg-gray-200 rounded-full h-2.5">
         <div
           className={`h-2.5 rounded-full ${getColor()}`}
-          style={{ width: `${probability*100}%` }}
+          style={{ width: `${(probability*100).toFixed(2)}%` }}
         ></div>
       </div>
       <p className="mt-2 text-sm text-gray-600">
-        Probability: {(probability * 100)}%
+        Probability: {(probability * 100).toFixed(2)}%
+
       </p>
     </div>
   );
