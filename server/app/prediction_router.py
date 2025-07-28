@@ -1,4 +1,3 @@
-import pandas as pd
 from fastapi import APIRouter
 from .prediction_controller import make_prediction, load_model_scaler, get_human_readable_chances
 from .prediction_schema import Data
